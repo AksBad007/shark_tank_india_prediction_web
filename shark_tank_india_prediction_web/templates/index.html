@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shark Tank India Prediction App</title>
+    <style>
+        .grid {
+            display: grid;
+            width: 30%;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .flex {
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+        }
+
+        .submit {
+            width: min-content;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Shark Tank India Investment Prediction</h1>
+        <form class="flex" action="{% url 'result' %}">
+            {% csrf_token %}
+
+            <div class="grid">
+                Industry:
+                <select name="industry" id="industry" required>
+                    <option value="" disabled hidden>Select Industry</option>
+                    <option value="Food">Food</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Animal/Pets">Animal/Pets</option>
+                    <option value="Beauty/Fashion">Beauty/Fashion</option>
+                    <option value="Education">Education</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Furnishing/Household">Furnishing/Household</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Liquor/Beverages">Liquor/Beverages</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Medical/Health">Medical/Health</option>
+                    <option value="Services">Services</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Technology/Software">Technology/Software</option>
+                    <option value="Vehicles/Electrical Vehicles">Vehicles/Electrical Vehicles</option>
+                </select>
+            </div>
+
+            <div class="grid">
+                Yearly Revenue:
+                <label for="y_rev">
+                    <input type="number" min="0" name="y_rev" id="y_rev" required>
+                </label>
+            </div>
+
+            <div class="grid">
+                Monthly Sales:
+                <label for="m_rev">
+                    <input type="number" min="0" name="m_rev" id="m_rev" required>
+                </label>
+            </div>
+
+            <div class="grid">
+                Gross Margin:
+                <label for="g_margin">
+                    <input type="number" min="0" name="g_margin" id="g_margin" required>
+                </label>
+            </div>
+
+            <div class="grid">
+                Net Margin:
+                <label for="n_margin">
+                    <input type="number" min="0" name="n_margin" id="n_margin" required>
+                </label>
+            </div>
+
+            <div class="grid">
+                Your Ask:
+                <label for="og_ask">
+                    <input type="number" min="0" name="og_ask" id="og_ask" required>
+                </label>
+            </div>
+
+            <div class="grid">
+                Equity Dilution:
+                <label for="og_equity">
+                    <input type="number" min="0" name="og_equity" id="og_equity" required>
+                </label>
+            </div>
+
+            <div class="grid">
+                Desired Valuation:
+                <label for="og_value">
+                    <input type="number" min="0" name="og_value" id="og_value" required>
+                </label>
+            </div>
+
+            <div class="grid">
+                Do you have any patents?
+                <div>
+                    <label for="yes">
+                        Yes
+                        <input type="radio" name="patents" id="yes" value="True" required>
+                    </label>
+                    <label for="no">
+                        No
+                        <input type="radio" name="patents" id="no" value="False">
+                    </label>
+                </div>
+            </div>
+
+            <input type="submit" value="Get Prediction" class="submit">
+        </form>
+    </center>
+</body>
+</html>
